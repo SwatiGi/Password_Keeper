@@ -16,7 +16,7 @@ const Password = () => {
         passwordHandle()
     }
   return (
-      <><div>
+      <><div style={{border:"1px solid black" ,width:"60%" ,margin:"auto" ,padding:"20px" ,boxShadow:"0px 0px 10px" ,borderRadius:"20px",marginTop:"50px"}}>
           <h1>Password Keeper</h1>
           
           <p >Total password : {data.length}</p>
@@ -30,7 +30,7 @@ const Password = () => {
           <br />
           <input type="text" name="" placeholder='search...' value={searchTitle} onChange={(e)=>setSearchTitle(e.target.value)} />
       </div>
-          <h1>All Password </h1>
+          <h1 style={{textAlign:"center"}}>All Password </h1>
           {data
   .filter((el) =>
     el.title.toLowerCase().includes(searchTitle.toLowerCase())
