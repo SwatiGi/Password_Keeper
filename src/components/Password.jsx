@@ -1,0 +1,44 @@
+import React, { useContext, useState } from 'react'
+import { PasswordContext } from '../store/PasswordContext'
+import Overlay from '../modal/Overlay'
+
+const Password = () => {
+    let { addPassword, passwordHandle, data, setData } = useContext(PasswordContext)
+    let [editItem, setEditItem] = useState(null);
+    let handleDelete = (id) => {
+        setData((pre) => pre.filter((el) => el.id !== id));
+        // data.filter((el)=>el.id!==id)
+    console.log(id)
+    }
+    let handleEdit = (item) => {
+        setEditItem(item)
+        passwordHandle()
+    }
+  return (
+      <><div>
+      <h1>Password Keeper</h1>
+          <p >Total password : {data.length}</p>
+          {addPassword&& <Overlay
+    editItem={editItem}
+    setData={setData}
+    setEditItem={setEditItem}
+  />}
+          <button onClick={passwordHandle}>Add New Password</button>
+          <input type="text" name="" placeholder='search...' id="" />
+      </div>
+          <h1>All Password </h1>
+          {data.length > 0 && data.map((el) => {
+              return <div key={el.id} style={{border:"1px solid" ,padding:"10px" ,margin:"20px", borderRadius:"10px" ,boxShadow:"0px 0px 5px"}}>
+                 <h2>Title  :{el.title}</h2>
+                  <p>Password : {el.password}</p>
+
+                 <div  style={{display:"flex",justifyContent:"space-between"}}> <button onClick={()=>handleDelete(el.id)}>Delete</button>
+                  <button onClick={()=>handleEdit(el)}>Edit</button></div>
+              </div>
+          })}
+      
+      </>
+  )
+}
+
+export default Password
