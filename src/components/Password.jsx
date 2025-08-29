@@ -25,10 +25,36 @@ const Password = () => {
     setData={setData}
     setEditItem={setEditItem}
   />}
-          <button onClick={passwordHandle}>Add New Password</button>
+          <button 
+  onClick={passwordHandle}
+  style={{
+    background: "transparent",
+    border: "2px double #333",   // double border
+    padding: "8px 16px",
+    borderRadius: "6px",
+    fontSize: "16px",
+    cursor: "pointer"
+  }}
+>
+  Add New Password
+</button>
           <br />
           <br />
-          <input type="text" name="" placeholder='search...' value={searchTitle} onChange={(e)=>setSearchTitle(e.target.value)} />
+     <input
+  type="text"
+  placeholder="search..."
+  value={searchTitle}
+  onChange={(e) => setSearchTitle(e.target.value)}
+  style={{
+    padding: "8px 12px",
+    borderRadius: "6px",
+    border: "1px solid #ccc",
+    fontSize: "16px",
+    outline: "none",
+    width: "200px",
+  }}
+/>
+
       </div>
           <h1 style={{textAlign:"center"}}>All Password </h1>
           {data

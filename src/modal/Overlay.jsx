@@ -15,7 +15,6 @@ const Overlay = ({editItem,setData,setEditItem}) => {
   }, [editItem])
    let handleSave = () => {
     if (editItem) {
-      // agar edit mode hai to update karo
       setData((pre) =>
         pre.map((el) =>
           el.id === editItem.id
@@ -23,11 +22,10 @@ const Overlay = ({editItem,setData,setEditItem}) => {
             : el
         )
       )
-      setEditItem(null) // reset edit mode
+      setEditItem(null) 
     } else {
       handleInput()
     }
-       // passwordHandle(false)
        setAddPassword(false)
   }
   return (
